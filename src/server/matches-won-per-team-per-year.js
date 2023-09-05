@@ -1,10 +1,10 @@
 // Number of matches won per team per year in IPL.
 
-function matchesWonPerYear(matchesData) {
-  let totalWinnerTeamPerYear = {};
+function matchesWonPerTeamPerYear(matchesData) {
+  let totalWinnersTeamPerYear = {};
 
   for (let match of matchesData) {
-    //we will make object of each winner team inside totalWinnerTeamPerYear like this
+    //we will make object of each winner team inside totalWinnersTeamPerYear like this
     // 2017:{
     //   'Sunrisers Hyderabad':{
     //     won_matches:12
@@ -15,22 +15,22 @@ function matchesWonPerYear(matchesData) {
     let winnerTeam = match.winner;
     let season = match.season;
 
-    if (!totalWinnerTeamPerYear[season] && season) {
-      totalWinnerTeamPerYear[season] = {};
+    if (!totalWinnersTeamPerYear[season] && season) {
+      totalWinnersTeamPerYear[season] = {};
     }
-    if (!totalWinnerTeamPerYear[season][winnerTeam] && winnerTeam) {
-      totalWinnerTeamPerYear[season][winnerTeam] = {
+    if (!totalWinnersTeamPerYear[season][winnerTeam] && winnerTeam) {
+      totalWinnersTeamPerYear[season][winnerTeam] = {
         won_matches: 1,
       };
     } else if (
-      totalWinnerTeamPerYear[season][winnerTeam] &&
-      totalWinnerTeamPerYear[season][winnerTeam].won_matches
+      totalWinnersTeamPerYear[season][winnerTeam] &&
+      totalWinnersTeamPerYear[season][winnerTeam].won_matches
     ) {
-      totalWinnerTeamPerYear[season][winnerTeam].won_matches += 1;
+      totalWinnersTeamPerYear[season][winnerTeam].won_matches += 1;
     }
   }
 
-  return totalWinnerTeamPerYear;
+  return totalWinnersTeamPerYear;
 }
 
-module.exports = matchesWonPerYear;
+module.exports = matchesWonPerTeamPerYear;

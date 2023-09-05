@@ -16,7 +16,7 @@ generateJson(totalMatchesPerYear,'./src/public/output/matchesPerYear.json');
 
 //for matches won per team per year ------------
 
-const matchesWonPerYear=require('./src/server/matches-won-per-team-per-year');
-const totalWinnerTeamPerYear=matchesWonPerYear(matchesData);
+const matchesWonPerTeamPerYear=require('./src/server/matches-won-per-team-per-year');
+const totalWinnersTeamPerYear=matchesWonPerTeamPerYear(matchesData);
 
-generateJson(totalWinnerTeamPerYear,'./src/public/output/matchesWonPerTeamPerYear.json');
+generateJson(totalWinnersTeamPerYear,'./src/public/output/matchesWonPerTeamPerYear.json');

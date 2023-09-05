@@ -1,4 +1,4 @@
-const matchesWonPerYear = require('../src/server/matches-won-per-team-per-year');
+const matchesWonPerTeamPerYear = require('../src/server/matches-won-per-team-per-year');
 
 test('It should show each year in which Number of matches won by per teams ', () => {
   const matchesData = [
@@ -9,7 +9,7 @@ test('It should show each year in which Number of matches won by per teams ', ()
     { season: '2015', winner: 'Kolkata Knight Riders' },
   ];
 
-  const result = matchesWonPerYear(matchesData);
+  const result = matchesWonPerTeamPerYear(matchesData);
 
   expect(result).toEqual({
     '2015': {
