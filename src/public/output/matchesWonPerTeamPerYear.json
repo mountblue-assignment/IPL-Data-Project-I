@@ -1,0 +1,274 @@
+{
+  "2008": {
+    "Kolkata Knight Riders": {
+      "won_matches": 6
+    },
+    "Chennai Super Kings": {
+      "won_matches": 9
+    },
+    "Delhi Daredevils": {
+      "won_matches": 7
+    },
+    "Royal Challengers Bangalore": {
+      "won_matches": 4
+    },
+    "Rajasthan Royals": {
+      "won_matches": 13
+    },
+    "Kings XI Punjab": {
+      "won_matches": 10
+    },
+    "Deccan Chargers": {
+      "won_matches": 2
+    },
+    "Mumbai Indians": {
+      "won_matches": 7
+    }
+  },
+  "2009": {
+    "Mumbai Indians": {
+      "won_matches": 5
+    },
+    "Royal Challengers Bangalore": {
+      "won_matches": 9
+    },
+    "Delhi Daredevils": {
+      "won_matches": 10
+    },
+    "Deccan Chargers": {
+      "won_matches": 9
+    },
+    "Chennai Super Kings": {
+      "won_matches": 8
+    },
+    "Kolkata Knight Riders": {
+      "won_matches": 3
+    },
+    "Rajasthan Royals": {
+      "won_matches": 6
+    },
+    "Kings XI Punjab": {
+      "won_matches": 7
+    }
+  },
+  "2010": {
+    "Kolkata Knight Riders": {
+      "won_matches": 7
+    },
+    "Mumbai Indians": {
+      "won_matches": 11
+    },
+    "Delhi Daredevils": {
+      "won_matches": 7
+    },
+    "Deccan Chargers": {
+      "won_matches": 8
+    },
+    "Royal Challengers Bangalore": {
+      "won_matches": 8
+    },
+    "Chennai Super Kings": {
+      "won_matches": 9
+    },
+    "Rajasthan Royals": {
+      "won_matches": 6
+    },
+    "Kings XI Punjab": {
+      "won_matches": 4
+    }
+  },
+  "2011": {
+    "Chennai Super Kings": {
+      "won_matches": 11
+    },
+    "Rajasthan Royals": {
+      "won_matches": 6
+    },
+    "Royal Challengers Bangalore": {
+      "won_matches": 10
+    },
+    "Mumbai Indians": {
+      "won_matches": 10
+    },
+    "Pune Warriors": {
+      "won_matches": 4
+    },
+    "Kolkata Knight Riders": {
+      "won_matches": 8
+    },
+    "Kings XI Punjab": {
+      "won_matches": 7
+    },
+    "Deccan Chargers": {
+      "won_matches": 6
+    },
+    "Kochi Tuskers Kerala": {
+      "won_matches": 6
+    },
+    "Delhi Daredevils": {
+      "won_matches": 4
+    }
+  },
+  "2012": {
+    "Mumbai Indians": {
+      "won_matches": 10
+    },
+    "Delhi Daredevils": {
+      "won_matches": 11
+    },
+    "Pune Warriors": {
+      "won_matches": 4
+    },
+    "Rajasthan Royals": {
+      "won_matches": 7
+    },
+    "Royal Challengers Bangalore": {
+      "won_matches": 8
+    },
+    "Chennai Super Kings": {
+      "won_matches": 10
+    },
+    "Kolkata Knight Riders": {
+      "won_matches": 12
+    },
+    "Kings XI Punjab": {
+      "won_matches": 8
+    },
+    "Deccan Chargers": {
+      "won_matches": 4
+    }
+  },
+  "2013": {
+    "Kolkata Knight Riders": {
+      "won_matches": 6
+    },
+    "Royal Challengers Bangalore": {
+      "won_matches": 9
+    },
+    "Sunrisers Hyderabad": {
+      "won_matches": 10
+    },
+    "Rajasthan Royals": {
+      "won_matches": 11
+    },
+    "Mumbai Indians": {
+      "won_matches": 13
+    },
+    "Kings XI Punjab": {
+      "won_matches": 8
+    },
+    "Chennai Super Kings": {
+      "won_matches": 12
+    },
+    "Pune Warriors": {
+      "won_matches": 4
+    },
+    "Delhi Daredevils": {
+      "won_matches": 3
+    }
+  },
+  "2014": {
+    "Kolkata Knight Riders": {
+      "won_matches": 11
+    },
+    "Royal Challengers Bangalore": {
+      "won_matches": 5
+    },
+    "Kings XI Punjab": {
+      "won_matches": 12
+    },
+    "Rajasthan Royals": {
+      "won_matches": 7
+    },
+    "Delhi Daredevils": {
+      "won_matches": 2
+    },
+    "Chennai Super Kings": {
+      "won_matches": 10
+    },
+    "Sunrisers Hyderabad": {
+      "won_matches": 6
+    },
+    "Mumbai Indians": {
+      "won_matches": 7
+    }
+  },
+  "2015": {
+    "Kolkata Knight Riders": {
+      "won_matches": 7
+    },
+    "Chennai Super Kings": {
+      "won_matches": 10
+    },
+    "Rajasthan Royals": {
+      "won_matches": 7
+    },
+    "Royal Challengers Bangalore": {
+      "won_matches": 8
+    },
+    "Kings XI Punjab": {
+      "won_matches": 3
+    },
+    "Sunrisers Hyderabad": {
+      "won_matches": 7
+    },
+    "Delhi Daredevils": {
+      "won_matches": 5
+    },
+    "Mumbai Indians": {
+      "won_matches": 10
+    }
+  },
+  "2016": {
+    "Rising Pune Supergiants": {
+      "won_matches": 5
+    },
+    "Kolkata Knight Riders": {
+      "won_matches": 8
+    },
+    "Gujarat Lions": {
+      "won_matches": 9
+    },
+    "Royal Challengers Bangalore": {
+      "won_matches": 9
+    },
+    "Mumbai Indians": {
+      "won_matches": 7
+    },
+    "Delhi Daredevils": {
+      "won_matches": 7
+    },
+    "Kings XI Punjab": {
+      "won_matches": 4
+    },
+    "Sunrisers Hyderabad": {
+      "won_matches": 11
+    }
+  },
+  "2017": {
+    "Sunrisers Hyderabad": {
+      "won_matches": 8
+    },
+    "Rising Pune Supergiant": {
+      "won_matches": 10
+    },
+    "Kolkata Knight Riders": {
+      "won_matches": 9
+    },
+    "Kings XI Punjab": {
+      "won_matches": 7
+    },
+    "Royal Challengers Bangalore": {
+      "won_matches": 3
+    },
+    "Mumbai Indians": {
+      "won_matches": 12
+    },
+    "Delhi Daredevils": {
+      "won_matches": 6
+    },
+    "Gujarat Lions": {
+      "won_matches": 4
+    }
+  }
+}
