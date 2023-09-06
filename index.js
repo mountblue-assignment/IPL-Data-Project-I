@@ -36,3 +36,9 @@ const top10EconomicalBowlers=require('./src/server/top10-economical-bowlers');
 const top10EconomicalBowlersData=top10EconomicalBowlers(deliveriesData,matchesData);
 
 generateJson(top10EconomicalBowlersData,'./src/public/output/top10EconomicalBowlers.json');
+
+
+const wonTossWonMatchTeam=require('./src/server/won-toss-won-match-team');
+const wonTossWonMatchTeamData=wonTossWonMatchTeam(matchesData);
+
+generateJson(wonTossWonMatchTeamData,'./src/public/output/wonTossWonMatchTeam.json');
