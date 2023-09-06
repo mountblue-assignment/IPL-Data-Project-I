@@ -20,3 +20,19 @@ const matchesWonPerTeamPerYear=require('./src/server/matches-won-per-team-per-ye
 const totalWinnersTeamPerYear=matchesWonPerTeamPerYear(matchesData);
 
 generateJson(totalWinnersTeamPerYear,'./src/public/output/matchesWonPerTeamPerYear.json');
+
+
+//for extra run conceded per team in 2016 ;
+
+const extraRunConcededPerTeam=require('./src/server/extra-run-conceded-per-team');
+const extraRunConcededPerTeamData=extraRunConcededPerTeam(deliveriesData,matchesData,'2016');
+
+generateJson(extraRunConcededPerTeamData,'./src/public/output/extraRunConcededPerTeam.json');
+
+
+// Top 10 economical bowlers in the year 2015
+
+const top10EconomicalBowlers=require('./src/server/top10-economical-bowlers');
+const top10EconomicalBowlersData=top10EconomicalBowlers(deliveriesData,matchesData);
+
+generateJson(top10EconomicalBowlersData,'./src/public/output/top10EconomicalBowlers.json');
