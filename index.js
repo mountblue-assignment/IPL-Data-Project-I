@@ -9,7 +9,7 @@ const extraRunConcededPerTeam=require('./src/server/extra-run-conceded-per-team'
 const top10EconomicalBowlers=require('./src/server/top10-economical-bowlers');
 const wonTossWonMatchTeam=require('./src/server/won-toss-won-match-team');
 const highestNoOfPlayerOfMatch=require('./src/server/highest-no-of-player-of-match');
-
+const highestDismissedByAnotherPlayer=require('./src/server/highest-dismissed-by-another-player');
 
 //for generating json files --------
 
@@ -46,3 +46,12 @@ generateJson(wonTossWonMatchTeamData,'./src/public/output/wonTossWonMatchTeam.js
 
 const highestNoOfPlayerOfMatchData=highestNoOfPlayerOfMatch(matchesData);
 generateJson(highestNoOfPlayerOfMatchData,'./src/public/output/highestNoOfPlayerOfMatch.json');
+
+
+// Find the highest number of times one player has been dismissed by another player----------------
+
+const highestDismissedByAnotherPlayerData=highestDismissedByAnotherPlayer(deliveriesData);
+generateJson(highestDismissedByAnotherPlayerData,'./src/public/output/highestDismissedByAnotherPlayer.json');
+
+
+
