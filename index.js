@@ -10,6 +10,8 @@ const top10EconomicalBowlers=require('./src/server/top10-economical-bowlers');
 const wonTossWonMatchTeam=require('./src/server/won-toss-won-match-team');
 const highestNoOfPlayerOfMatch=require('./src/server/highest-no-of-player-of-match');
 const highestDismissedByAnotherPlayer=require('./src/server/highest-dismissed-by-another-player');
+const batsmanStrikeRatePerSeason=require('./src/server/batsman-strike-rate-per-season');
+
 
 //for generating json files --------
 
@@ -54,4 +56,8 @@ const highestDismissedByAnotherPlayerData=highestDismissedByAnotherPlayer(delive
 generateJson(highestDismissedByAnotherPlayerData,'./src/public/output/highestDismissedByAnotherPlayer.json');
 
 
+//Find the strike rate of a batsman for each se
+
+const batsmanStrikeRatePerSeasonData=batsmanStrikeRatePerSeason(matchesData,deliveriesData);
+generateJson(batsmanStrikeRatePerSeasonData,'./src/public/output/batsmanStrikeRatePerSeason.json');
 
