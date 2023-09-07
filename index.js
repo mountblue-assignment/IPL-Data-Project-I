@@ -1,17 +1,17 @@
 
-const matchesData=require('./src/data/matchesResult.json');
-const deliveriesData=require('./src/data/deliveriesResult.json');
-const generateJson=require('./utility/generateJson');
+const matchesData= require('./src/data/matchesResult.json');
+const deliveriesData= require('./src/data/deliveriesResult.json');
+const generateJson= require('./utility/generateJson');
 
-const matchesPerYear=require('./src/server/matches-per-year');
-const matchesWonPerTeamPerYear=require('./src/server/matches-won-per-team-per-year');
-const extraRunConcededPerTeam=require('./src/server/extra-run-conceded-per-team');
-const top10EconomicalBowlers=require('./src/server/top10-economical-bowlers');
-const wonTossWonMatchTeam=require('./src/server/won-toss-won-match-team');
-const highestNoOfPlayerOfMatch=require('./src/server/highest-no-of-player-of-match');
-const highestDismissedByAnotherPlayer=require('./src/server/highest-dismissed-by-another-player');
-const batsmanStrikeRatePerSeason=require('./src/server/batsman-strike-rate-per-season');
-
+const matchesPerYear= require('./src/server/matches-per-year');
+const matchesWonPerTeamPerYear= require('./src/server/matches-won-per-team-per-year');
+const extraRunConcededPerTeam= require('./src/server/extra-run-conceded-per-team');
+const top10EconomicalBowlers= require('./src/server/top10-economical-bowlers');
+const wonTossWonMatchTeam= require('./src/server/won-toss-won-match-team');
+const highestNoOfPlayerOfMatch= require('./src/server/highest-no-of-player-of-match');
+const highestDismissedByAnotherPlayer= require('./src/server/highest-dismissed-by-another-player');
+const batsmanStrikeRatePerSeason= require('./src/server/batsman-strike-rate-per-season');
+const bowlerWithBestEconomySuperover = require('./src/server/bowler-with-best-economy-superover');
 
 //for generating json files --------
 
@@ -61,3 +61,6 @@ generateJson(highestDismissedByAnotherPlayerData,'./src/public/output/highestDis
 const batsmanStrikeRatePerSeasonData=batsmanStrikeRatePerSeason(matchesData,deliveriesData);
 generateJson(batsmanStrikeRatePerSeasonData,'./src/public/output/batsmanStrikeRatePerSeason.json');
 
+//Find the bowler with the best economy in super over
+const bowlerWithBestEconomySuperoverData=bowlerWithBestEconomySuperover(deliveriesData);
+generateJson(bowlerWithBestEconomySuperoverData,'./src/public/output/bowlerWithBestEconomySuperover.json');
