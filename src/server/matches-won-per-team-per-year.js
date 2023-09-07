@@ -6,9 +6,7 @@ function matchesWonPerTeamPerYear(matchesData) {
   for (let match of matchesData) {
     //we will make object of each winner team inside totalWinnersTeamPerYear like this
     // 2017:{
-    //   'Sunrisers Hyderabad':{
-    //     won_matches:12
-    //   },
+    //   'Sunrisers Hyderabad':1
     //   .....
     // }
 
@@ -18,16 +16,16 @@ function matchesWonPerTeamPerYear(matchesData) {
     if (!totalWinnersTeamPerYear[season] && season) {
       totalWinnersTeamPerYear[season] = {};
     }
+
     if (!totalWinnersTeamPerYear[season][winnerTeam] && winnerTeam) {
-      totalWinnersTeamPerYear[season][winnerTeam] = {
-        won_matches: 1,
-      };
-    } else if (
-      totalWinnersTeamPerYear[season][winnerTeam] &&
-      totalWinnersTeamPerYear[season][winnerTeam].won_matches
-    ) {
-      totalWinnersTeamPerYear[season][winnerTeam].won_matches += 1;
+
+      totalWinnersTeamPerYear[season][winnerTeam] = 1;
+    } 
+    else if (totalWinnersTeamPerYear[season][winnerTeam]) {
+
+      totalWinnersTeamPerYear[season][winnerTeam] += 1;
     }
+    
   }
 
   return totalWinnersTeamPerYear;

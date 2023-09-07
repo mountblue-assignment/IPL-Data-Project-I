@@ -12,26 +12,16 @@ test('It should show each year in which Number of matches won by per teams ', ()
   const result = matchesWonPerTeamPerYear(matchesData);
 
   expect(result).toEqual({
-    '2015': {
-      'Kolkata Knight Riders': {
-        won_matches: 1,
-      }
+    2015: {
+      'Kolkata Knight Riders': 1,
     },
-   '2016': {
-      'Kolkata Knight Riders': {
-        won_matches: 1,
-      },
-      'Rising Pune Supergiant': {
-        won_matches: 1,
-      },
+    2016: {
+      'Kolkata Knight Riders': 1,
+      'Rising Pune Supergiant': 1,
     },
-    '2017': {
-      'Rising Pune Supergiant': {
-        won_matches: 1,
-      },
-      'Sunrisers Hyderabad': {
-        won_matches: 1,
-      },
+    2017: {
+      'Rising Pune Supergiant': 1,
+      'Sunrisers Hyderabad': 1,
     },
   });
 });

@@ -56,11 +56,12 @@ const highestDismissedByAnotherPlayerData=highestDismissedByAnotherPlayer(delive
 generateJson(highestDismissedByAnotherPlayerData,'./src/public/output/highestDismissedByAnotherPlayer.json');
 
 
-//Find the strike rate of a batsman for each se
+//Find the strike rate of a batsman for each season-------------
 
 const batsmanStrikeRatePerSeasonData=batsmanStrikeRatePerSeason(matchesData,deliveriesData);
 generateJson(batsmanStrikeRatePerSeasonData,'./src/public/output/batsmanStrikeRatePerSeason.json');
 
-//Find the bowler with the best economy in super over
+//Find the bowler with the best economy in super over-------------------
+
 const bowlerWithBestEconomySuperoverData=bowlerWithBestEconomySuperover(deliveriesData);
 generateJson(bowlerWithBestEconomySuperoverData,'./src/public/output/bowlerWithBestEconomySuperover.json');
