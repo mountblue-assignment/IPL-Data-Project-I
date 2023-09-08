@@ -1,68 +1,60 @@
 //Find the highest number of times one player has been dismissed by another player
 
-function highestDismissedByAnotherPlayer(deliveriesData) {
+function highestDismissedByAnotherPlayer(deliveries) {
+     const highestDismissedByAnotherPlayerData = {};
 
-  const highestDismissedByAnotherPlayerData = {};
+     for (let matchDelivery of deliveries) {
+          let dismissalKind = matchDelivery.dismissal_kind;
+          let batsMan = matchDelivery.batsman;
+          let bowler = matchDelivery.bowler;
 
-  for (let matchDelivery of deliveriesData) {
+          if (dismissalKind && dismissalKind !== 'run out') {
+               if (!highestDismissedByAnotherPlayerData[batsMan]) {
+                    highestDismissedByAnotherPlayerData[batsMan] = {};
+               }
 
-    let dismissalKind = matchDelivery.dismissal_kind;
-    let batsMan = matchDelivery.batsman;
-    let bowler = matchDelivery.bowler;
+               if (!highestDismissedByAnotherPlayerData[batsMan][bowler]) {
+                    highestDismissedByAnotherPlayerData[batsMan][bowler] = 1;
+               } else if (highestDismissedByAnotherPlayerData[batsMan][bowler]) {
+                    highestDismissedByAnotherPlayerData[batsMan][bowler]++;
+               }
+          }
+     }
 
-    if (dismissalKind && dismissalKind !== 'run out') {
+     //it will generate the highestDismissedByAnotherPlayerData object so using this we can find highest dismissals
+     // let highestDismissedByAnotherPlayerData={
+     //   'D du Preez': { 'A Singh': 1 },
+     //   'RR Raje': { 'R Bhatia': 1 },
+     //   'M Morkel': {
+     //     'RG Sharma': 1,
+     //     'A Kumble': 1,
+     //     'Harmeet Singh': 1,
+     // }
 
-      if (!highestDismissedByAnotherPlayerData[batsMan]) {
-        highestDismissedByAnotherPlayerData[batsMan] = {};
-      }
+     let maxDismissalsInResult = 0;
+     let maxDismissalsByBowlerInResult = [];
+     let maxDismissedBatsman = null;
 
+     for (let batsman in highestDismissedByAnotherPlayerData) {
+          for (let bowler in highestDismissedByAnotherPlayerData[batsman]) {
+               let currentDismissals =
+                    highestDismissedByAnotherPlayerData[batsman][bowler];
 
-      if (!highestDismissedByAnotherPlayerData[batsMan][bowler]) {
+               if (maxDismissalsInResult < currentDismissals) {
+                    maxDismissalsInResult = currentDismissals;
+                    maxDismissedBatsman = batsman;
+                    maxDismissalsByBowlerInResult = [bowler];
+               } else if (maxDismissalsInResult === currentDismissals) {
+                    maxDismissalsByBowlerInResult.push(bowler);
+               }
+          }
+     }
 
-        highestDismissedByAnotherPlayerData[batsMan][bowler] = 1;
-      } 
-      else if (highestDismissedByAnotherPlayerData[batsMan][bowler]) {
-
-        highestDismissedByAnotherPlayerData[batsMan][bowler]++;
-      }
-
-    }
-  }
-
-  //it will generate the highestDismissedByAnotherPlayerData object so using this we can find highest dismissals
-  // let highestDismissedByAnotherPlayerData={
-  //   'D du Preez': { 'A Singh': 1 },
-  //   'RR Raje': { 'R Bhatia': 1 },
-  //   'M Morkel': {
-  //     'RG Sharma': 1,
-  //     'A Kumble': 1,
-  //     'Harmeet Singh': 1,
-  // }
-
-  const result = {};
-
-  for (let batsman in highestDismissedByAnotherPlayerData) {
-
-    let maxDismissalsByBowler = '';
-    let maxDismissals = 0;
-
-    for (let bowler in highestDismissedByAnotherPlayerData[batsman]) {
-      
-      let currentDismissals =
-        highestDismissedByAnotherPlayerData[batsman][bowler];
-
-      if (maxDismissals < currentDismissals) {
-        maxDismissals = currentDismissals;
-        maxDismissalsByBowler = bowler;
-      }
-    }
-
-    result[batsman] = {
-      [maxDismissalsByBowler]: maxDismissals,
-    };
-  }
-
-  return result;
+     return {
+          batsman: maxDismissedBatsman,
+          maxDismissalsByBowler: maxDismissalsByBowlerInResult,
+          maxDismissals: maxDismissalsInResult,
+     };
 }
 
 module.exports = highestDismissedByAnotherPlayer;

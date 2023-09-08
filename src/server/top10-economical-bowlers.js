@@ -1,94 +1,85 @@
 // Top 10 economical bowlers in the year 2015
 
 function top10EconomicalBowlers(deliveriesData, matchesData) {
+     const matchesOf2015 = matchesData.filter((match) => match.season === '2015');
 
-  const matchesOf2015 = matchesData.filter((match) => match.season === '2015');
+     let economicalBowlersData = {};
 
-  let economicalBowlersData = {};
+     matchesOf2015.forEach((match) => {
+          for (let matchDelivery of deliveriesData) {
+               if (match.id === matchDelivery.match_id) {
+                    const bowler = matchDelivery.bowler;
+                    const concededRuns =
+                         Number(matchDelivery.total_runs) -
+                         Number(matchDelivery.bye_runs) -
+                         Number(matchDelivery.legbye_runs);
 
-  matchesOf2015.forEach((match) => {
+                    if (!economicalBowlersData[bowler]) {
+                         economicalBowlersData[bowler] = {
+                              runs: 0,
+                              balls: 0,
+                         };
+                    }
 
-    for (let matchDelivery of deliveriesData) {
+                    economicalBowlersData[bowler].runs += concededRuns;
+                    economicalBowlersData[bowler].balls += 1;
+               }
+          }
+     });
 
-      if (match.id === matchDelivery.match_id) {
+     //now we will calculate economy rate of bowler--------
 
-        const bowler = matchDelivery.bowler;
-        const concededRuns =
-          Number(matchDelivery.total_runs) -
-          Number(matchDelivery.bye_runs) -
-          Number(matchDelivery.legbye_runs);
+     for (const bowler in economicalBowlersData) {
+          const runs = economicalBowlersData[bowler].runs;
+          const balls = economicalBowlersData[bowler].balls;
 
-        if (!economicalBowlersData[bowler]) {
+          if (balls > 0) {
+               economicalBowlersData[bowler].economy = (runs / (balls / 6)).toFixed(2);
+          } else {
+               economicalBowlersData[bowler].economy = '';
+          }
+     }
 
-          economicalBowlersData[bowler] = {
-            runs: 0,
-            balls: 0,
-          };
-        }
-        
-        economicalBowlersData[bowler].runs += concededRuns;
-        economicalBowlersData[bowler].balls += 1;
-        
-      }
-    }
-  });
+     const economicalBowlersArr = Object.entries(economicalBowlersData);
 
-  //now we will calculate economy rate of bowler--------
+     economicalBowlersArr.sort(function (a, b) {
+          // when we write a[1], b[1], we are accessing the second element of a,b
+          // which is the bowler's statistics object.
 
-  for (const bowler in economicalBowlersData) {
-    const runs = economicalBowlersData[bowler].runs;
-    const balls = economicalBowlersData[bowler].balls;
+          const economyA = a[1].economy;
+          const economyB = b[1].economy;
 
-    if (balls > 0) {
+          return economyA - economyB;
+     });
 
-      economicalBowlersData[bowler].economy = (runs / (balls / 6)).toFixed(2);
+     const temp10EconomicalBowlerArr = economicalBowlersArr.slice(0, 10);
 
-    } else {
-      
-      economicalBowlersData[bowler].economy = '';
-    }
-  }
+     //it will genrate data like this
+     // [
+     //   [
+     //     "RN ten Doeschate",
+     //     {
+     //       "runs": 4,
+     //       "balls": 6,
+     //       "economy": "4.00"
+     //     }
+     //   ],
+     // ]
+     //so we will simplify this structure & after sorting we will again convert back into object form---
+     // {
+     // "Parvez Rasool": {
+     //   "runs": 30,
+     //   "balls": 29,
+     //   "economy": "6.21"
+     // },
 
-  const economicalBowlersArr = Object.entries(economicalBowlersData);
+     let top10EconomicalBowlersData = {};
 
-  economicalBowlersArr.sort(function (a, b) {
-    // when we write a[1], b[1], we are accessing the second element of a,b
-    // which is the bowler's statistics object.
+     for (let bowlerArr of temp10EconomicalBowlerArr) {
+          top10EconomicalBowlersData[bowlerArr[0]] = bowlerArr[1];
+     }
 
-    const economyA = a[1].economy;
-    const economyB = b[1].economy;
-
-    return economyA - economyB;
-  });
-
-  const temp10EconomicalBowlerArr = economicalBowlersArr.slice(0, 10);
-
-  //it will genrate data like this
-  // [
-  //   [
-  //     "RN ten Doeschate",
-  //     {
-  //       "runs": 4,
-  //       "balls": 6,
-  //       "economy": "4.00"
-  //     }
-  //   ],
-  // ]
-  //so we will simplify this structure & after sorting we will again convert back into object form---
-  // {
-  // "Parvez Rasool": {
-  //   "runs": 30,
-  //   "balls": 29,
-  //   "economy": "6.21"
-  // },
-
-  let top10EconomicalBowlersData = {};
-
-  for (let bowlerArr of temp10EconomicalBowlerArr) {
-    top10EconomicalBowlersData[bowlerArr[0]] = bowlerArr[1];
-  }
-
-  return top10EconomicalBowlersData;
+     return top10EconomicalBowlersData;
 }
 
 module.exports = top10EconomicalBowlers;

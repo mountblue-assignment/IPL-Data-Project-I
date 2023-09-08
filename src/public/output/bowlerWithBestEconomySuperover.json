@@ -1,4 +1,6 @@
 {
-  "bestBowlerInSuperOver": "JJ Bumrah",
+  "bestBowlerInSuperOver": [
+    "JJ Bumrah"
+  ],
   "bestEconomyInSuperOver": 0.75
 }

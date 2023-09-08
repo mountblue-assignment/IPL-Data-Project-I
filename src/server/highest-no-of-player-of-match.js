@@ -1,75 +1,68 @@
 // Find a player who has won the highest number of Player of the Match awards for each season
 
 function highestNoOfPlayerOfMatch(matchesData) {
+     let highestNoOfPlayerOfMatchData = {};
 
-  let highestNoOfPlayerOfMatchData = {};
+     for (let match of matchesData) {
+          let playerOfMatch = match.player_of_match;
+          let season = match.season;
 
-  for (let match of matchesData) {
+          if (!highestNoOfPlayerOfMatchData[season]) {
+               highestNoOfPlayerOfMatchData[season] = {};
+          }
 
-    let playerOfMatch = match.player_of_match;
-    let season = match.season;
+          if (!highestNoOfPlayerOfMatchData[season][playerOfMatch]) {
+               highestNoOfPlayerOfMatchData[season][playerOfMatch] = 1;
+          } else if (highestNoOfPlayerOfMatchData[season][playerOfMatch]) {
+               highestNoOfPlayerOfMatchData[season][playerOfMatch] += 1;
+          }
+     }
 
-    if (!highestNoOfPlayerOfMatchData[season]) {
+     //   highestNoOfPlayerOfMatchData contains this type of structure
+     // {
+     //     '2008': {
+     //       'BB McCullum': 1,
+     //       'MEK Hussey': 1,
+     //       'MF Maharoof': 3,
+     //     },
+     //     '2009': {
+     //         'SR Tendulkar': 2,
+     //         'R Dravid': 1,
+     //         'DL Vettori': 1,
+     //     }
+     // }
+     //now we will find max noOfPlayerOfMatch in each season and store in result object
+     //   result={
+     //     {
+     //         "2008": {
+     //           "SE Marsh": 5
+     //         },
+     //         "2009": {
+     //           "YK Pathan": 3
+     //         },
+     //   }
 
-      highestNoOfPlayerOfMatchData[season] = {};
-    }
+     let result = {};
 
-    if (!highestNoOfPlayerOfMatchData[season][playerOfMatch]) {
+     for (const season in highestNoOfPlayerOfMatchData) {
+          let maxPlayerOfMatch = '';
+          let maxCount = 0;
 
-      highestNoOfPlayerOfMatchData[season][playerOfMatch] = 1;
+          for (const playerOfMatch in highestNoOfPlayerOfMatchData[season]) {
+               let currentCount = highestNoOfPlayerOfMatchData[season][playerOfMatch];
 
-    } else if (highestNoOfPlayerOfMatchData[season][playerOfMatch]) {
-        
-      highestNoOfPlayerOfMatchData[season][playerOfMatch] += 1;
-    }
-  }
+               if (currentCount > maxCount) {
+                    maxCount = currentCount;
+                    maxPlayerOfMatch = playerOfMatch;
+               }
+          }
 
-  //   highestNoOfPlayerOfMatchData contains this type of structure
-  // {
-  //     '2008': {
-  //       'BB McCullum': 1,
-  //       'MEK Hussey': 1,
-  //       'MF Maharoof': 3,
-  //     },
-  //     '2009': {
-  //         'SR Tendulkar': 2,
-  //         'R Dravid': 1,
-  //         'DL Vettori': 1,
-  //     }
-  // }
-  //now we will find max noOfPlayerOfMatch in each season and store in result object
-  //   result={
-  //     {
-  //         "2008": {
-  //           "SE Marsh": 5
-  //         },
-  //         "2009": {
-  //           "YK Pathan": 3
-  //         },
-  //   }
+          result[season] = {
+               [maxPlayerOfMatch]: maxCount,
+          };
+     }
 
-  let result = {};
-
-  for (const season in highestNoOfPlayerOfMatchData) {
-    let maxPlayerOfMatch = '';
-    let maxCount = 0;
-
-    for (const playerOfMatch in highestNoOfPlayerOfMatchData[season]) {
-        
-      let currentCount = highestNoOfPlayerOfMatchData[season][playerOfMatch];
-
-      if (currentCount > maxCount) {
-        maxCount = currentCount;
-        maxPlayerOfMatch = playerOfMatch;
-      }
-    }
-
-    result[season] = {
-      [maxPlayerOfMatch]: maxCount,
-    };
-  }
-
-  return result;
+     return result;
 }
 
 module.exports = highestNoOfPlayerOfMatch;
